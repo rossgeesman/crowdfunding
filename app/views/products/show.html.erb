@@ -1,0 +1,117 @@
+<% title @product.title %>
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
+    <div class="row product-page-top">
+      <div class="col-md-12">
+        <div class="product-info-wrapper">
+        <ol class="breadcrumb product-trail">
+          <li><a href=<%= collaborators_path %>>Collaborators</a></li>
+          <li><a href=<%= collaborator_path(@product.collaborator) %>><%= @product.collaborator.name %></a></li>
+          <li class="active"><%= @product.title %></li>
+        </ol>
+      </div>
+        <div id="carousel-example-generic" class="center-block carousel slide" data-ride="carousel" data-interval="false">
+                                  <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <% @product.images.each_with_index do |image, index| %>
+            <li data-target="#carousel-example-generic" data-slide-to="<%= index %>" class=<%= 'active' if index == 0 %>></li>
+            <% end %>
+          </ol>
+
+                                  <!-- Wrapper for slides -->
+       
+
+          <div class="carousel-inner">
+        	  <% @product.images.each_with_index do |image, index| %>
+            <% if index == 0 %>
+            <div class="item active">
+            <% else %>
+              <div class="item">
+            <% end %>
+              <%= link_to(image_tag(image.product_photo.url(:large)), image.product_photo.url(:large) ) %>
+              </div>
+            <% end %>
+          </div>
+
+        
+                                   <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+
+        </div>
+      
+   
+        <div class="row product-info-row">
+          <div class="product-info-wrapper">
+            <div class="col-md-6">
+	            <h3 class="product-title"><%= @product.title %></h3>
+	  	        <h3 class="price"><%= number_to_currency(@product.price, precision: 0, unit: "₩") %></h3>
+              <p class="time-left"><%= t "store.index.remaining" %> <%= @product.time_left %>
+              <%= t "store.index.progress" %> <%= number_to_percentage(@product.progress, precision: 0) %></p>
+              <div class="progress light-bar">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style= <%= "width:"+ number_to_percentage(@product.progress) + ";" %> >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <%= form_tag new_customer_path, :method => :get, :class => 'form-inline order-initiate' %>
+                <%= select_tag(:trait_name, options_from_collection_for_select(@product.traits, "trait_name", "trait_name"), :prompt => "Select Option", class: 'form-control trait-select', :required => true)  %>
+                <%=hidden_field_tag :product_id, @product.id %>
+                <%= submit_tag 'Order Now', :name => nil, class: 'btn btn-warning order-button' %>
+              </form>
+              <div class="share-wrapper">
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_pinterest_large' displayText='Pinterest'></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row product-text-row">
+      <div class="product-info-wrapper">
+        <div class="col-md-12">
+          <h4 class="section-title">About</h4>
+        </div>
+        <div class="col-md-6">
+          <p class="product-description-text"><%= simple_format @product.description %></p>
+        </div>
+        <div class="col-md-6">
+          <img class="center-block img-responsive explainer-img" src= <%= @product.explainer.url(:standard) %> alt="Rails">
+        </div>
+      <div class="col-md-12">
+        <h4 class="section-title">Collaborator</h4>
+      </div>
+      <div class="col-md-12">
+        <div class="media collaborator-info">
+          <a class="pull-left" href=<%= collaborator_path(@product.collaborator) %>>
+            <img class="media-object collaborator_thumb" src= <%= @product.collaborator.avatar.url(:medium) %> alt="Rails">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><%= @product.collaborator.name %></h4>
+            <%= simple_format truncate(@product.collaborator.bio, length: 200) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+             
+  
+
+        
+          
+            
+            
+           
+              
+              
+          
+       
+      
+

@@ -1,0 +1,4 @@
+<p><%= t "order_confirmation.welcome" %></p>
+<p>
+	Thank you for funding <%= @order.product.title %> at Freshist! If the item meets its order goal we will process your payment on <%= @order.product.end_date.to_date.to_formatted_s(:db) %>. Please check our website frequently for awesome new products!
+</p>

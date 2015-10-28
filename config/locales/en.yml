@@ -1,0 +1,144 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  layouts:
+    about: "About Freshist"
+    collaborators: "Collaborators"
+    blog: "FAQ"
+    account: "My Account"
+    logout: "Logout"
+    login: "Login"
+    jumbotron:
+      subtitle: "Original new designs from your favorite person."
+    footer: "Address: Eunpyeong-gu, Jeungsan-dong 131-51 #101 Seoul, Korea 122-935 | Email: contact@freshi.st | Tel: 010-4665-8552 | Business Registration #: 110-20-83548 사업자등록번호: 110-20-83548 | Mail Order Business: 2014-Seoul-Eunpyeong-0519"
+    tos: "Terms of Service"
+    privacy_policy: "Privacy Policy"   
+  store:
+    index:
+      progress: "Progress:"
+      remaining: "Time left:"
+      headline: "New Designs"
+  order:
+    create:
+      success: "Your order has been completed."
+    update:
+      success: "Your order has been updated successfully."
+    _form: 
+      warning: 'Your card will be charged on %{end_date} if this item meets its minimum order goal.'
+  customer:
+    new:
+      title: "Order"
+    create:
+      success: "Welcome to Freshist! Your account was created successfully."
+    update:
+      success: "Your account was updated successfully."
+    card:
+      update: 
+        success: "Your card has been updated."
+        invalid_number: "The card number is not a valid credit card number."
+        incorrect_number: "The card number is incorrect."
+        invalid_expiry_month: "The card's expiration month is invalid."
+        invalid_expiry_year: "The card's expiration year is invalid."
+        invalid_cvc: "The card's security code is invalid."
+        expired_card: "The card has expired."
+        incorrect_cvc: "The card's security code is incorrect."
+        incorrect_zip: "The card's zip code failed validation."
+        card_declined: "The card was declined."
+        processing_error: "An error occurred while processing the card."
+        rate_limit: "An error occurred due to requests hitting the API too quickly. Please let us know if you're consistently running into this error."
+    _form:
+      signin_message_html: "If you don't have an account, you can make one now. If you already have an account, %{href} first please."
+      order_info: "Order Content"
+      shipping_address: "Shipping Address"
+      payment_information: "Payment Information"
+      account_information: "Account Information"
+      card_number: "Card Number"
+      cvv: "Credit Card CVV"
+      expiration: "Exp. Date"
+      signup_agree: "Terms of Service and Privacy Policy"
+      agree_tos: "Do you agree to the terms of service?"
+      agree_pp: "Do you agree to the Privacy policy?"
+      agree: "Yes"
+      zip_find: "Postal Code" 
+    account:
+      info:
+        title: "My Account Info"
+        email: "Email:"
+        password: "Password:"
+        edit_password: "Edit Password"
+      card:
+        title: "My Card Info"
+        ending_in: "Card Number: ****-****-****-"
+        expiring: "Exp:"
+        edit: "Edit Card"
+      orders:
+        title: "My Orders"
+        address: "Delivery Address"
+        cancel: "Cancel Order"
+  signin_href: "login"
+
+  customer_sessions:
+    new:
+      title: "Login"
+      email: "Email"
+      password: "Password"
+      forgot: "Forgot your password?"
+    create:
+      invalid: "Incorrect email/password combination."
+    destroy:
+      logout: "You've been logged out."
+  password_resets:
+        new:
+          title: "Reset Password"
+          instructions: "Enter your email address to get intstructions on how you can change your password."
+          email: "Email"
+          submit: "Change Password"
+
+  completed: "Closed"
+  helpers:
+    submit:
+      create: "Order"
+    label:
+      customer:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirm Password"
+      order:
+        recipient: "Recipient"
+        postal_code: "Postal Code"
+        address_field_1: "Address Line 1"
+        address_field_2: "Address Line 2"
+        credit_card_number: "Card Number"
+        phone_number: "Phone Number"
+
+  edit_card:
+    title: "Edit Card"
+    number: "Card Number"
+    cvv_number: "CVV Number"
+    expiration_date: "Exp. Date"
+    update: "Update"
+
+  order_confirmation:
+    welcome: "WELCOME TO FRESHIST!"
+
+  
+

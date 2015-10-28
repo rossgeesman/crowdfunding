@@ -1,0 +1,43 @@
+<% title @collaborator.name %>
+<div class="center jumbotron collaborator-product-index" style="background: url(<%= @collaborator.background_image.url(:standard) %>);">
+	<img src= <%= @collaborator.avatar.url(:standard) %> alt="Rails" class="center-block img-circle collaborator-jumbotron-profile">
+	<h1 class="collaborator-jumbotron-title"><%= @collaborator.name %></h1>
+	<div class="collaborator-jumbotron-bio">
+      <p class"collaborator-jumbotron-bio"><%= @collaborator.bio %></p>
+    </div>
+    <p><a href="#ND" class="btn btn-primary jumbotron-btn" role="button">View Products</a></p>
+    
+</div>
+
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+
+<% @collaborator.products.in_groups_of(3, false).each do |group| %>
+  <div class="row">
+  	<% group.each do |product| %>
+  	  <div class="col-md-4">
+  	  	<div class="center-block product-info">
+	      <img src=<%= product.images.first.product_photo.url(:medium) %> class="center-block img-responsive product-image-grid" alt="Responsive image"></a>
+	      <div class="product-info-background">
+	        <h4 class="product-title"><%= link_to product.title, product_path(product) %></h4>
+	        <h4 class="collaborator-products-price"><%= number_to_currency(product.price, precision: 0, unit: "₩") %></h4>
+	        <div style="clear: both">
+	        	<h5 class="collaborator-time-remaining"><%= t "store.index.remaining" %> <%= product.time_left %></h5>
+	            <h5 class="collaborator-products-progress"><%= t "store.index.progress" %> <%= number_to_percentage(product.progress, precision: 0) %></h5>
+	        </div>
+	        <hr class="place-holder"/>
+	        <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style= <%= "width:"+ number_to_percentage(product.progress) + ";" %> >
+              </div>
+            </div>
+	        <p><%= product.description.truncate(130, separator: ' ') %></p>
+          </div>
+	  </div>
+	  </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+</div>

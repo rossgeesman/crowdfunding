@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Freshist | <%= yield_or_default(:title, "Collaborative Clothing") %> </title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/assets/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/assets/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32">
+  <%#= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "https://js.stripe.com/v2/", "application" %>
+  <%= javascript_include_tag :modernizr %>
+  <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "ee4f3aa4-ac26-44c3-bd4d-57ee6b84b5ad", doNotHash: true, doNotCopy: false, hashAddressBar: false});</script>
+  <%= csrf_meta_tags %>
+  <%= tag :meta, :name => "stripe-key", :content => Rails.configuration.stripe[:publishable_key] %>
+  <script type="text/javascript">
+  window.I18n = <%= current_translations.to_json.html_safe %>
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class='<%= controller.controller_name %>'>
+  <div class="wrapper">
+  <% if current_page?(store_url) %>
+    <div class="center jumbotron">
+      <div class="container">
+        <h1>Collabo clothing from fashion people.</h1>
+        <p><%= t "layouts.jumbotron.subtitle" %></p>
+        <p><a href="#ND" class="btn btn-primary btn-lg jumbotron-btn" role="button">View Products</a></p>
+      </div>
+    </div>
+  <% end %>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href= <%= store_url %> class="navbar-brand">
+              <img src=<%= asset_path("freshist_web_logo.png") %> class="center-block img-responsive logo-img" alt="Responsive image"></a>
+          
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+	            <li><%= link_to (t "layouts.about"), pages_about_path %></a></li>
+	            <li><%= link_to (t "layouts.collaborators"), collaborators_path %></li>
+              <li><%= link_to (t "layouts.blog"), pages_faq_path %></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <% if session[:customer_id] %> 
+              <li><%= link_to (t "layouts.account"), customer_path(id: session[:customer_id])  %></li>
+              <li><%= link_to (t "layouts.logout"), customer_logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to (t "layouts.login"), customer_login_path %></li>
+            <% end %>
+              <li class="dropdown">
+                <a data-toggle="dropdown" href="#">Languages<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><%= link_to_unless_current "English", locale: "en" %></li>
+                  <li><%= link_to_unless_current "한국어", locale: "kr" %></li>
+                </ul>
+              </li>   
+            </ul>
+          </div>
+        </div> 
+      </div> 
+    </div>
+    <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+              <%= value %>
+        </div>
+    <% end %>
+
+    
+    
+      <%= yield %>
+    
+ </div>
+    <div class="footer"> 
+      <div class="container">
+        <p class="text-muted company-info"><%= t "layouts.footer" %> | <%= link_to (t "layouts.tos"), pages_tos_path %> | <%= link_to (t "layouts.privacy_policy"), pages_privacy_policy_path %></p>
+      </div>
+    </div>
+</body>
+</html>

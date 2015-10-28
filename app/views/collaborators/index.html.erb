@@ -1,0 +1,16 @@
+<div class="container">
+<h1 class="collaborators-heading">Collaborators</h1>
+<% @collaborators.in_groups_of(3, false).each do |group| %>
+<div class="row">
+    <% group.each do |collaborator| %>
+    <div class="col-md-4">
+      <div class="well collaborator-grid">
+  	    <a href= <%= collaborator_path(collaborator) %>> <img src= <%= collaborator.avatar.url(:standard) %> alt="Rails" class="center-block img-circle collaborator-profile-img"></a>
+        <h3 class="collaborator-name"><%= link_to collaborator.name, collaborator_path(collaborator) %></h3>
+        <p><%= truncate(collaborator.bio, length: 140) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% end %>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+<a name="ND"></a>
+
+
+
+<div class="page-header"> 
+<h1> <%= t "store.index.headline" %> </h1>
+</div>
+
+<% @products.in_groups_of(3, false).each do |group| %>
+  <div class="row">
+  	<% group.each do |product| %>
+  	  <div class="col-md-4">
+  	  	<div class="center-block product-info">
+	      <a href= <%= product_path(product) %> ><img src= <%= product.collaborator.avatar.url(:standard) %> alt="Rails" class="img-circle product-grid">
+	      
+	        <img src=<%= product.images.first.product_photo.url(:medium) %> class="center-block img-responsive product-image-grid" alt="Responsive image"></a>
+	      <div class="product-info-background">
+	        <h4 class="product-title"><%= link_to product.title, product_path(product) %></h4>
+	        <h4 class="product-grid-price"><%= number_to_currency(product.price, precision: 0, unit: "₩") %></h4>
+	        <h4 class="collaborator"><%= product.collaborator.name %></h4>
+	        <h5 class="product-progress"><%= t "store.index.progress" %> <%= number_to_percentage(product.progress, precision: 0) %></h5>
+	        <h5 class="time-remaining"><%= t "store.index.remaining" %> <%= product.time_left %></h5>
+	        <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style= <%= "width:"+ number_to_percentage(product.progress) + ";" %> >
+              	
+              </div>
+            </div>
+	        <p><%= product.description.truncate(130, separator: ' ') %></p>
+          </div>
+	    </div>
+	  </div>
+    <% end %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,28 @@
+// Place all the styles related to the CustomerSessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.login-button {
+	max-width: 300px;
+	margin-bottom: 5px;
+}
+.login-form {
+    width: auto;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.login-title {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+.login-wrapper {
+    max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 60px;
+}
+.alert-danger {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}

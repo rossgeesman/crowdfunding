@@ -1,0 +1,56 @@
+.store h1 {
+	text-align: center;
+}
+.store h4 {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+.img {
+	alignment: center;
+}
+.row {
+	padding-top: 50px;
+}
+.product-info {
+    width: 300px;
+}
+.product-image-grid {
+	padding-top: 60px;
+	opacity: 0.9;
+}
+.product-grid {
+	position: absolute;
+	left: 50%;
+	margin-left: -75px;
+	z-index: 1;
+	text-align: center;
+	width: 140px;
+}
+.product-grid-price {
+	float: right;
+	display: inline;
+}
+.product-title {
+	display: inline;
+}
+.product-progress {
+	display: inline;
+	float: right;
+}
+.progress {
+	margin-top: 5px;
+	background-color: #ecf0f1;
+	border-radius: 0;
+}
+.progress-bar {
+	background-color: #404040;
+}
+.product-info-background {
+    background-color: white;
+    padding: 10px;
+    padding-top: 15px;
+    border-bottom: 1px black;
+    max-height: 235px;
+    min-height: 235px;	
+
+}

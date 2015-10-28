@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+  	<div class="col-md-12">
+  		<h1><%= (t("edit_card.title")) %></h1>
+  	  <div class="panel card-box">
+  	  	 
+         <div class="panel-heading">
+         	<span class="glyphicon glyphicon-lock"></span>
+            <h3 class="panel-title">Secure Credit Card Form</h3>
+         </div>
+         <div class="panel-body">
+           <div class="card-wrapper">
+       	   <%= form_tag controller: 'customers', action: 'update_card', method: 'post' do %>
+  	  	
+           <div class="form-group">
+  	         <%= label_tag        :number, (t("edit_card.number")) %>
+  	         <%= text_field_tag :number, nil, class: "form-control" %>
+  	       </div>
+  	       <div class="form-group">
+  	         <%= label_tag :cvc, (t("edit_card.cvv_number")) %>
+  	         <%= text_field_tag :cvc, nil, class: "form-control" %>
+  	       </div>
+  	       <div class="form-group">
+  	         <%= label_tag        :exp_month, (t("edit_card.expiration_date")) %>
+  	         <%= select_month   nil, {use_month_numbers: true}, { id: 'exp_month', class: 'form-control card-expiration' } %>
+             <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+15 }, { id: 'exp_year', class: 'form-control card-expiration' } %>
+           </div>
+           <%= submit_tag (t("edit_card.update")), class: "btn btn-default order-submit" %>
+   
+           <% end %>
+           </div>
+    
+          </div>
+      
+      </div>
+  	</div>
+  </div>
+</div>

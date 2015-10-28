@@ -1,0 +1,151 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+@import "bootstrap-sprockets";
+
+
+@import "bootstrap";
+
+
+
+* {
+    margin: 0;
+}
+
+html, body { 
+    padding-top: 30px;
+    height: 100%;
+    background: #ecf0f1;
+
+}
+
+.navbar {
+    margin-bottom: 0px;
+    background-color: #191919;
+}
+
+.navbar-header {
+    float: left;
+    padding: 0px;
+    padding-top: 0px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+	float: none;
+	width: 100px;
+}
+
+.nav li a {
+	padding: 5px;
+	padding-bottom: 10px;
+	padding-top: 0px; 
+	font-size: 14px;
+}
+.nav li a:hover {
+	color: white;
+	text-decoration: underline;
+}
+.navbar-text {
+	margin: 5px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	list-style-type: none;
+}
+.navbar-inverse .navbar-nav > li > a {
+	color: white;
+;
+}
+.open > .dropdown-menu {
+	text-align: center;
+	background-color: #222222;
+	color: white;
+}
+.dropdown-menu li a {
+	color: #EEEEEE;
+	&:hover {
+		color: black;
+	}
+
+}
+.jumbotron {
+	background: url(jumbotron2.jpg);
+	height: 550px;
+	background-position: center;
+}
+.jumbotron h1 {
+	color: white;
+	text-align: center;
+	margin-top: 80px;
+}
+.jumbotron p {
+	text-align: center;
+	color: white;
+}
+.jumbotron-btn {
+	background-color: transparent;
+	border-color: white;
+	border-width: 3px;
+	border-radius: 0px;
+	&:hover { background-color: white;
+              border-color: white;
+              color: #212B27;
+	 }
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
+}
+.footer, .push {
+    margin-top: 120px;
+	min-height: 60px;
+	background-color: white;
+	clear: both;
+	border-top: 1px black;
+}
+.company-info {
+	text-align: center;
+	padding-top: 20px;
+	color: #333333;
+}
+.alert {
+	margin-top: 5px;
+	padding-top: 35px;
+	text-align: center;
+}
+.logo-img {
+	width: 120px;
+}
+
+@media (max-width: $screen-sm-min) { 
+.navbar-brand {
+	float: left;
+	width: 100px;
+}
+html, body { 
+    padding-top: 20px;
+}
+.jumbotron {
+	background: url(jumbotron2.jpg);
+	height: 400px;
+	background-position: center;
+}
+.jumbotron h1 {
+	color: white;
+	text-align: center;
+	margin-top: 40px;
+}
+}

@@ -1,0 +1,75 @@
+.collaborator-grid {
+	margin-left: auto;
+	margin-right: auto;
+    min-height: 360px;
+    background: white;
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+}
+.collaborator-name {
+	text-align: center;
+}
+.collaborators-heading {
+	text-align: center;
+	margin-top: 50px;
+}
+.collaborator-profile-img{
+	width: 150px;
+}
+.collaborator-product-index {
+	height: 550px;
+	background-position: center;
+}
+.collaborator-jumbotron-title {
+	margin-top: 20px !important;
+}
+.collaborator-jumbotron-bio p {
+	margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 100;
+    max-width: 700px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.collaborator-products-progress {
+    display: inline;
+    float: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+	
+}
+.progress {
+	margin-top: 5px;
+	background-color: #E8E8E8;
+	border-radius: 0;
+}
+.collaborator-products-price {
+    float: right;
+	display: inline;
+	margin-bottom: 0px;
+	margin-top: 0px;
+ }
+ .collaborator-time-remaining {
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+ }
+ .place-holder {
+    height: 10px;
+    margin-top: 0px;
+    border-top: none;
+ }
+ .view-collaborators-button {
+    max-width: 90px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+ }
+ .glyphicon {
+    position: relative;
+    top: 2px;
+    font-size: 16px;
+ }

@@ -1,0 +1,50 @@
+<div class="container">
+	 
+	<div class="row">
+		<div class="col-md-6">
+		  <div class="well customer-info-box">
+		    <h3 class="account-page-title"><%= t "customer.account.info.title" %></h3>
+            <p class="customer-card-info"><%= t "customer.account.info.email" %> <%= @customer.email %></p> <%= link_to edit_customer_path(@customer) do %><i class="glyphicon glyphicon-edit"></i><% end %></br>
+            <p class="customer-card-info"><%= t "customer.account.info.password" %> ********</p> <%= link_to new_password_reset_path do %><i class="glyphicon glyphicon-edit"></i><% end %>
+		  </div>
+		  <div class="well customer-info-box">
+		  	<h3 class="account-page-title"><%= t "customer.account.card.title" %></h3>
+            <% if @info.default_card %>
+              <p class="customer-card-info"><%= @default_card.type %> <%= t "customer.account.card.ending_in" %> <%= @default_card.last4 %> <%= t "customer.account.card.expiring" %> <%= @default_card.exp_month %>/<%= @default_card.exp_year %></p><%= link_to edit_card_path do %><i class="glyphicon glyphicon-edit"></i><% end %>
+            <% else %>
+              <p>You haven't added a card yet.</p>
+            <% end %>
+		  </div>
+		</div>
+		<div class="col-md-6">
+		  <div class="well orders-box">
+		  	<h3 class="account-page-title"><%= t "customer.account.orders.title" %></h3>
+            
+            <table class="table table-striped">
+              <thead>
+              	<tr>
+            	  <th>Product</th>
+            	  <th><%= t "customer.account.orders.address" %></th>
+            	  <th>End Date</th>
+            	  <th>Cancel</th>
+                </tr>
+              </thead>
+              <tbody>
+              	<% if @order.each do |order| %>
+                <tr>
+            	  <td><%= order.product.title %></td>
+            	  <td><%= order.postal_code %> <%= order.address_field_1 %></td>
+            	  <td><%= order.product.end_date.to_date.to_formatted_s(:db) %></td>
+            	  <td><%= link_to order, method: :delete, confirm: "Are you sure?" do %><i class="glyphicon glyphicon-trash"></i><% end %></td>
+            	</tr>
+            	<% end.empty? %>
+            	<tr><td></td><td>You have no orders.</td></tr>
+            	<% end %>
+              </tbody>
+            </table>
+            
+ 
+          </div>
+        </div>
+    </div>
+</div>

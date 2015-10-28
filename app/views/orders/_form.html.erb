@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    
+    <%= form_for(@order) do |f| %>
+    <% if @order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+        <ul>
+          <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+    <div class="col-md-12">
+      <h1><%= t "customer.new.title" %></h1>
+      <h3> <%= t "customer._form.order_info" %></h3>
+      <img src=<%= @product.images.first.product_photo.url(:thumb) %> class="img-responsive order-photo" alt="Responsive image">
+      <p><%= @product.title %> - <%= @product.collaborator.name %> - <%= number_to_currency(@product.price, precision: 0, unit: "₩") %></p>
+      <div class="form-group">
+        <%= f.label :trait %>
+        <%= f.select(:trait_name, options_from_collection_for_select(Trait.all, :trait_name, :trait_name, :selected => params[:trait_name]))  %>
+      </div>
+      <%= f.hidden_field :product_id, :value => params[:product_id] %>
+      <%= f.hidden_field :customer_id, :value => session[:customer_id] %>
+      <h3><%= t "customer._form.shipping_address" %></h3>
+      <div class="form-group">
+        <%= f.label :recipient %>
+        <%= f.text_field :recipient, class: 'form-control' %> 
+      </div>
+      <div class="form-group">
+        <%= f.label :postal_code %>
+        <%= f.text_field :postal_code, class: 'form-control' %> 
+      </div>
+      <div class="form-group">
+        <%= f.label :address_field_1 %>
+        <%= f.text_field :address_field_1, class: 'form-control' %> 
+      </div>
+      <div class="form-group">
+        <%= f.label :address_field_2 %>
+        <%= f.text_field :address_field_2, class: 'form-control' %> 
+      </div>
+      <div class="form-group">
+        <%= f.label :phone_number %>
+        <%= f.text_field :phone_number, class: 'form-control' %> 
+      </div>
+      <p><%= t "order._form.warning", :end_date => @product.end_date.to_date.to_formatted_s(:db) %></p>
+      
+        <%= f.submit :class => 'btn btn-default order-submit' %>
+      
+       <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
