@@ -9,7 +9,7 @@
 		  </div>
 		  <div class="well customer-info-box">
 		  	<h3 class="account-page-title"><%= t "customer.account.card.title" %></h3>
-            <% if stripe_customer.default_source %>
+            <% if @stripe_customer.default_source %>
               <p class="customer-card-info"><%= @default_card.brand %> <%= t "customer.account.card.ending_in" %> <%= @default_card.last4 %> <%= t "customer.account.card.expiring" %> <%= @default_card.exp_month %>/<%= @default_card.exp_year %></p><%= link_to edit_card_path do %><i class="glyphicon glyphicon-edit"></i><% end %>
             <% else %>
               <p>You haven't added a card yet.</p>

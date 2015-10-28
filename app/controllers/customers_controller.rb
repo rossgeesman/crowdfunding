@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show
     @order = @customer.orders.all
-    stripe_customer = Stripe::Customer.retrieve(@customer.stripe_customer_token)
+    @stripe_customer = Stripe::Customer.retrieve(@customer.stripe_customer_token)
     @default_card = stripe_customer.sources.retrieve(stripe_customer.default_source)
   end
 
