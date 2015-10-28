@@ -12,8 +12,8 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show
     @order = @customer.orders.all
-    @info = Stripe::Customer.retrieve(:id => @customer.stripe_customer_token)
-    @default_card = Stripe::Customer.retrieve(:id => @customer.stripe_customer_token, :expand => ['default_card']).default_card
+    stripe_customer = Stripe::Customer.retrieve(@customer.stripe_customer_token)
+    @default_card = stripe_customer.sources.retrieve(stripe_customer.default_source)
   end
 
   # GET /customers/new
