@@ -4,7 +4,7 @@ Crowdfunding App
 Details
 -------
 
-Crowdfunding site built for Freshist. Also my first Rails app.
+Crowdfunding site built for Freshist. Also my first Rails app. Sample up at https://crwdfndr.herokuapp.com
 
 Environment
 -----------
